@@ -6,6 +6,79 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title %}Votre titre ici{% endblock %}</title>
+    <style>
+        .site-footer {
+        background-color: #f9f9f9;
+        padding: 50px 0;
+        margin-top: 20px;
+        clear: both;
+        text-align: center; /* Centrage du contenu */
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: center; /* Centrage horizontal */
+        flex-wrap: wrap;
+    }
+
+    .footer-column {
+        flex: 1;
+        margin-right: 30px;
+        margin-bottom: 30px; /* Espacement entre les colonnes */
+        text-align: left; /* Alignement du texte à gauche */
+    }
+
+    .footer-column h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #333; /* Couleur du titre */
+    }
+
+    .footer-column ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-column ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer-column a {
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+        color: #007bff;
+    }
+
+    .social-icons a {
+        color: #333;
+        margin-right: 10px;
+    }
+
+    .footer-bottom {
+        background-color: #333;
+        color: #fff;
+        padding: 15px 0;
+        text-align: center;
+    }
+
+
+        @media (max-width: 768px) {
+            .footer-container {
+            flex-direction: column; /* Pour empiler les colonnes verticalement */
+            align-items: center; /* Centrer le contenu horizontalement */
+        }
+
+    .footer-column {
+        flex: 1;
+        margin-right: 0;
+        margin-bottom: 30px;
+        text-align: center; /* Centrer le texte */
+    }
+    </style>
 </head>
 <body>
 
@@ -23,13 +96,48 @@
 </div>
 
 {% block content %}
-<div style="padding-left:16px">
+<div style="padding-left:8px">
   <!-- Contenu spécifique à chaque page -->
 </div>
 {% endblock %}
 
 <script src="{% static 'js/script.js' %}"></script>
 
+<footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="social-icons">
 
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Servicios</h3>
+                <ul>
+                    <li>Service1</li>
+                    <li>Service2</li>
+                    <li>Service3</li>
+                    <li>Service4</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="">Bienvenu</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">FAQ</a></li>
+                    <li class="hideOnMobile"><a href="">Términos</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contactez nous</h3>
+                <p> <br>Email: email <br></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Kits Finanzas. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
