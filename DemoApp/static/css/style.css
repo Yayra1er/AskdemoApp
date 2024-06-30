@@ -1,3 +1,4 @@
+/*   Pour base.html */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -6,7 +7,6 @@ body {
 .topnav {
     overflow: hidden;
     background-color: #333;
-
 }
 
 .topnav a {
@@ -33,6 +33,21 @@ body {
     display: none;
 }
 
+/* Media query for PC version */
+@media screen and (min-width: 601px) {
+    .topnav {
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+    }
+
+    .topnav .right {
+        margin-right: 0;
+        margin-left: auto; /* Pushes .right to the right */
+    }
+}
+
+/* Media query for mobile version (max-width: 600px) is already defined */
 @media screen and (max-width: 600px) {
     .topnav a:not(:first-child) {
         display: none;
@@ -55,3 +70,103 @@ body {
         text-align: left;
     }
 }
+
+
+
+
+/* Pour home.html */
+
+.container {
+    padding: 16px;
+    max-width: 800px; /* Example max-width for responsiveness */
+    margin: 0 auto; /* Center the container */
+
+}
+
+.welcome-title, .section-title {
+    color: #333;
+}
+
+.intro-text, .advantages-list, .cta-text {
+    font-size: 16px;
+    color: #666;
+}
+
+.advantages-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.advantages-list li {
+    padding: 8px 0;
+}
+
+.carousel {
+    margin: 20px 0;
+}
+
+.carousel-item {
+    display: none;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+blockquote {
+    font-size: 16px;
+    color: #555;
+    border-left: 4px solid #04AA6D;
+    padding-left: 16px;
+    margin-left: 0;
+}
+
+footer {
+    font-size: 14px;
+    color: #777;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #04AA6D;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #03a062;
+}
+
+/* Media queries for responsiveness */
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+
+    }
+
+    .intro-text, .advantages-list, .cta-text {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .carousel {
+        margin: 10px 0;
+    }
+
+    .carousel-item {
+        font-size: 14px;
+    }
+}
+
+
+
