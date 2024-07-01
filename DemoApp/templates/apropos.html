@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+<html lang="fr">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos de DemoApp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Styles spécifiques pour la page À propos */
+        main {
+            padding: 0x;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #333;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features ul li {
+            margin-bottom: 10px;
+        }
+
+        .testimonials blockquote {
+            border-left: 3px solid #007bff;
+            padding-left: 10px;
+            margin-left: 10px;
+            color: #666;
+        }
+
+        .testimonials blockquote p {
+            font-style: italic;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .gallery img {
+            width: 30%;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* Rectangles pour chaque section */
+        .section-rectangle {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 70%;
+            margin-left: 20%;
+        }
+    </style>
+</head>
+<body>
+
+
+<main>
+    <section id="organization" class="section-rectangle">
+        <div class="container">
+            <h2>Présentation de l'organisation</h2>
+            <p>Depuis notre création en 2010, nous nous engageons à fournir des solutions innovantes pour les institutions académiques.</p>
+            <p>Notre mission est de simplifier et d'améliorer la gestion des soutenances pour les universités et les instituts de recherche.</p>
+            <p>Nous visons à réduire le temps de planification des soutenances grâce à notre solution intégrée.</p>
+            <p>Nos équipes sont composées d'experts dédiés à l'amélioration continue de nos produits pour répondre aux besoins spécifiques de nos clients.</p>
+        </div>
+    </section>
+
+    <section id="solution" class="section-rectangle">
+        <div class="container">
+            <h2>Détails sur la solution</h2>
+            <div class="features">
+                <h3>Fonctionnalités principales</h3>
+                <ul>
+                    <li>Planification automatique des soutenances</li>
+                    <li>Rappels et notifications</li>
+                    <li>Tableau de bord intuitif</li>
+                    <li>Gestion des participants</li>
+                </ul>
+                <h3>Avantages pour les utilisateurs</h3>
+                <p>Grâce à notre solution, les institutions peuvent optimiser leur processus de gestion des soutenances et améliorer l'expérience utilisateur pour tous les participants.</p>
+                <h3>Témoignages de clients</h3>
+                <div class="testimonials">
+                    <blockquote>
+                        <p>Grâce à cette solution, nous avons réduit le temps de planification des soutenances de 50%.</p>
+                        <footer>- Université XYZ</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="illustrations" class="section-rectangle">
+        <div class="container">
+            <h2>Illustrations</h2>
+            <div class="gallery">
+                <img src="{% static 'images/demo4.jpg' %}" alt="Illustration 1">
+                <img src="{% static 'images/demo3.jpg' %}" alt="Illustration 2">
+                <img src="{% static 'images/demo2.png' %}" alt="Illustration 3">
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    function toggleNav() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+
+</body>
+</html>
+{% endblock %}
