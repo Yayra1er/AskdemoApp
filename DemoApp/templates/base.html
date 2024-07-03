@@ -225,7 +225,7 @@
 <footer class="site-footer">
     <div class="footer-container">
         <div class="footer-column">
-            <h3>Servicios</h3>
+            <h3>Services</h3>
             <ul>
                 <li>Service1</li>
                 <li>Service2</li>
@@ -236,16 +236,16 @@
         <div class="footer-column">
             <h3>Liens rapides</h3>
             <ul>
-                <li><a href="">Bienvenu</a></li>
-                <li><a href="">Services</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="">FAQ</a></li>
+                <li><a href="{% url 'home' %}">Bienvenu</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="#">FAQ</a></li>
                 <li class="hideOnMobile"><a href="">Términos</a></li>
             </ul>
         </div>
         <div class="footer-column">
             <h3>Contactez nous</h3>
-            <p>Email: email<br></p>
+            <p>Email: contact@notreplateforme.com<br></p>
         </div>
     </div>
     <div class="social-icons">
