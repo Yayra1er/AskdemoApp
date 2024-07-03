@@ -72,13 +72,26 @@
             height: 5px;
             background-color: #00cc66; /* Couleur verte pour la barre de chargement */
             position: absolute;
-            top: 80px; /* Position juste en dessous de la barre de navigation */
+            top: 70px; /* Position juste en dessous de la barre de navigation */
             left: 0;
             z-index: 9999;
-            transition: width 0.4s ease;
+            overflow: hidden;
         }
 
-          .load{
+        .loader::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, white, transparent);
+            animation: loading 3s infinite;
+        }
+
+
+
+        .load {
             width: 100%;
             height: 5px;
             background-color: #00cc66; /* Couleur verte pour la barre de chargement */
@@ -86,7 +99,27 @@
             top: 0px; /* Position juste en dessous de la barre de navigation */
             left: 0;
             z-index: 9999;
-            transition: width 0.4s ease;
+            overflow: hidden;
+        }
+
+        .load::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, white, transparent);
+            animation: loading 3s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
         }
 
         /* Footer styles */
@@ -197,7 +230,6 @@
     </style>
 </head>
 <body>
-<div class="load"></div> <!-- Barre de chargement -->
 
 <div class="topnav" id="myTopnav">
   <a href="#home" class="active">DemoApp</a>
@@ -212,8 +244,7 @@
     <i class="fa fa-bars"></i>
   </a>
 </div>
-<br>
-<br>
+<div class="load"></div> <!-- Barre de chargement -->
 <div class="loader"></div> <!-- Barre de chargement -->
 
 {% block content %}
@@ -240,7 +271,7 @@
                 <li><a href="#">Services</a></li>
                 <li><a href="{% url 'contact' %}">Contact</a></li>
                 <li><a href="#">FAQ</a></li>
-                <li class="hideOnMobile"><a href="">Términos</a></li>
+                <li class="hideOnMobile"><a href="#">Termes</a></li>
             </ul>
         </div>
         <div class="footer-column">

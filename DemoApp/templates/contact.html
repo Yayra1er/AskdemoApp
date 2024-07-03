@@ -115,9 +115,8 @@
             object-fit: cover;
         }
 
-        button{
+        button {
             margin-left: 40%;
-
         }
     </style>
 </head>
@@ -128,7 +127,8 @@
             <h2 class="section-title">Contactez-nous</h2>
 
             <div class="contact-form">
-                <form id="contactForm">
+                <form action="{% url 'contact' %}" method="post" id="contactForm">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label for="name">Nom</label>
                         <input type="text" id="name" name="name" required>
@@ -165,7 +165,6 @@
 
             <!-- Google Maps Integration -->
             <div id="map" class="map-container"></div>
-
         </div>
     </section>
 </main>
