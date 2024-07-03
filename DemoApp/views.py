@@ -9,3 +9,15 @@ def home(request):
 
 def apropos(request):
     return render(request, 'apropos.html')
+
+
+def solution(request):
+    return  render(request, 'solution.html')
+
+
+def offre(request):
+    return render(request, 'offre.html')
+
+
+def contact(request):
+    return render(request, 'contact.html')

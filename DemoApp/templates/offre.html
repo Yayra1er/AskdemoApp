@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offres d'Abonnement - DemoApp</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section styles */
+        .section-title {
+            color: #333;
+            border-bottom: 2px solid #28a745;
+            padding-bottom: 5px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .plans-wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .plan-tab {
+            width: calc(33.33% - 20px);
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .plan-tab:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        .plan-tab.active {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .plan-name {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .plan-price {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .plan-details {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .plan-content {
+            display: none;
+            width: 100%;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+
+        .plan-content.active {
+            display: block;
+        }
+
+        .plan-description {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .plan-advantage {
+            font-size: 1em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .plan-tab {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .plan-tab {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <section id="subscription-plans" class="plans-section">
+        <div class="container">
+            <h2 class="section-title">Plans d'Abonnement</h2>
+            <div class="plans-wrapper">
+                <div class="plan-tab active" data-tab="free-plan">
+                    <h3 class="plan-name">Gratuit</h3>
+                    <p class="plan-price">0€/mois</p>
+                </div>
+                <div class="plan-tab" data-tab="standard-plan">
+                    <h3 class="plan-name">Standard</h3>
+                    <p class="plan-price">30€/mois</p>
+                </div>
+                <div class="plan-tab" data-tab="premium-plan">
+                    <h3 class="plan-name">Premium</h3>
+                    <p class="plan-price">60€/mois</p>
+                </div>
+            </div>
+            <div class="plan-details">
+                <div id="free-plan" class="plan-content active">
+                    <p class="plan-description">Accès limité, Support de base</p>
+                    <p class="plan-advantage">Accédez aux fonctionnalités de base et commencez à planifier vos soutenances gratuitement.</p>
+                </div>
+                <div id="standard-plan" class="plan-content">
+                    <p class="plan-description">Fonctionnalités complètes, Support prioritaire</p>
+                    <p class="plan-advantage">Profitez de toutes les fonctionnalités essentielles avec un support prioritaire.</p>
+                </div>
+                <div id="premium-plan" class="plan-content">
+                    <p class="plan-description">Toutes les fonctionnalités, Support premium, Formation</p>
+                    <p class="plan-advantage">Obtenez le maximum avec notre plan Premium, incluant un support personnalisé et des sessions de formation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    // JavaScript for tab switching
+    document.addEventListener('DOMContentLoaded', function() {
+        const planTabs = document.querySelectorAll('.plan-tab');
+        const planContents = document.querySelectorAll('.plan-content');
+
+        planTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                // Remove active class from all tabs and contents
+                planTabs.forEach(tab => tab.classList.remove('active'));
+                planContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to the clicked tab and corresponding content
+                this.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    });
+</script>
+</body>
+</html>
+{% endblock %}

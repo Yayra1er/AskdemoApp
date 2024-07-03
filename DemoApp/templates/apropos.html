@@ -10,32 +10,54 @@
     <title>À propos de DemoApp</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        /* Styles spécifiques pour la page À propos */
-        main {
-            padding: 0x;
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
 
-        section {
-            margin-bottom: 30px;
+        main {
+            padding: 20px;
         }
 
         h2 {
             color: #333;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 2px solid #28a745;
             padding-bottom: 5px;
+        }
+
+        .section-rectangle {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 80%;
+            margin: 0 auto;
         }
 
         .features ul {
             list-style: none;
             padding: 0;
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .features ul li {
+            flex: 1 1 45%;
             margin-bottom: 10px;
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .testimonials blockquote {
-            border-left: 3px solid #007bff;
+            border-left: 3px solid #28a745;
             padding-left: 10px;
             margin-left: 10px;
             color: #666;
@@ -46,36 +68,92 @@
         }
 
         .gallery {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
         }
 
         .gallery img {
-            width: 30%;
-            margin-bottom: 20px;
+            width: 100%;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
-        /* Rectangles pour chaque section */
-        .section-rectangle {
-            background-color: #f9f9f9;
-            padding: 15px;
-            margin-bottom: 30px;
+        @media (max-width: 768px) {
+            .section-rectangle {
+                width: 100%;
+                margin: 0 10px;
+            }
+        }
+
+        .card {
+            background: #fff;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 70%;
-            margin-left: 20%;
+            padding: 20px;
+            margin-bottom: 20px;
         }
 
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .faq {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .faq h2 {
+            margin-top: 0;
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+        }
+
+        .faq-item button {
+            width: 100%;
+            padding: 10px;
+            text-align: left;
+            border: none;
+            background: #f9f9f9;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .faq-item button:hover {
+            background: #e9ecef;
+        }
+
+        .faq-item button.active {
+            background: #28a745;
+            color: white;
+        }
+
+        .faq-content {
+            display: none;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+
+        .faq-content.active {
+            display: block;
+        }
+
+        .tab-link{
+            background-color: #28a745;
+            height: 30px;
+            margin-right: 10px;
+
+        }
 
     </style>
 </head>
 <body>
-
-
 <main>
     <section id="organization" class="section-rectangle">
         <div class="container">
@@ -86,7 +164,7 @@
             <p>Nos équipes sont composées d'experts dédiés à l'amélioration continue de nos produits pour répondre aux besoins spécifiques de nos clients.</p>
         </div>
     </section>
-
+    <br>
     <section id="solution" class="section-rectangle">
         <div class="container">
             <h2>Détails sur la solution</h2>
@@ -110,7 +188,7 @@
             </div>
         </div>
     </section>
-
+    <br>
     <section id="illustrations" class="section-rectangle">
         <div class="container">
             <h2>Illustrations</h2>
@@ -121,19 +199,90 @@
             </div>
         </div>
     </section>
+    <br>
+    <section id="demo-features" class="section-rectangle">
+        <div class="container">
+            <h2>Fonctionnalités en Démo</h2>
+            <div class="feature-tabs">
+                <button class="tab-link active" onclick="openTab(event, 'feature1')">Planification</button>
+                <button class="tab-link" onclick="openTab(event, 'feature2')">Notifications</button>
+                <button class="tab-link" onclick="openTab(event, 'feature3')">Tableau de Bord</button>
+                <button class="tab-link" onclick="openTab(event, 'feature4')">Gestion des Participants</button>
+            </div>
+            <div id="feature1" class="feature-content active">
+                <h3>Planification Automatique</h3>
+                <p>Notre application permet de planifier automatiquement les soutenances en fonction des disponibilités des participants.</p>
+            </div>
+            <div id="feature2" class="feature-content">
+                <h3>Rappels et Notifications</h3>
+                <p>Recevez des rappels et des notifications pour toutes les étapes importantes des soutenances.</p>
+            </div>
+            <div id="feature3" class="feature-content">
+                <h3>Tableau de Bord Intuitif</h3>
+                <p>Un tableau de bord intuitif pour visualiser toutes les informations pertinentes en un coup d'œil.</p>
+            </div>
+            <div id="feature4" class="feature-content">
+                <h3>Gestion des Participants</h3>
+                <p>Gérez facilement les participants, leurs rôles, et leurs disponibilités pour chaque soutenance.</p>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section id="faq" class="section-rectangle">
+        <div class="container faq">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <button class="accordion">Qu'est-ce que DemoApp?</button>
+                <div class="faq-content">
+                    <p>DemoApp est une application innovante pour la gestion des soutenances académiques, permettant de simplifier et d'optimiser le processus pour les institutions.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="accordion">Comment fonctionne la planification automatique?</button>
+                <div class="faq-content">
+                    <p>La planification automatique utilise les disponibilités des participants pour créer un emploi du temps optimisé.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="accordion">Quels sont les avantages de DemoApp?</button>
+                <div class="faq-content">
+                    <p>DemoApp offre une réduction du temps de planification, des rappels et notifications automatisés, et une gestion simplifiée des participants.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
 <script>
-    function toggleNav() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("feature-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
         }
+        tablinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
     }
 </script>
-
+{% endblock %}
 </body>
 </html>
-{% endblock %}
