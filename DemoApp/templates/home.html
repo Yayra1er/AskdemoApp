@@ -77,12 +77,13 @@
         justify-content: space-around;
         margin-top: 20px;
         margin-bottom: 20px;
+
     }
 
     .rectangle {
         flex: 1;
         padding: 20px;
-        background: linear-gradient(90deg, #2196f3, #4caf50);
+        background-color: #c1d9bc;
         border: 1px solid #ccc;
         text-align: center;
         margin: 0 10px;
@@ -96,15 +97,15 @@
 
     /* Couleurs différentes pour chaque rectangle */
     .rectangle:nth-child(1) {
-        background-color: #04AA6D;
+        background-color: #c1d9bc;
     }
 
     .rectangle:nth-child(2) {
-        background-color: #04AA6D;
+        background-color:#c1d9bc;
     }
 
     .rectangle:nth-child(3) {
-        background-color: #04AA6D;
+        background-color: #c1d9bc;
     }
 
 
@@ -338,6 +339,59 @@
     background-color: #0056b3;
 }
 
+
+
+
+.testimonial-carousel {
+    width: 80%; /* Ajuster la largeur selon les besoins */
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.testimonial-item {
+    width: 100%;
+    height: auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none; /* Par défaut, tous les témoignages sont cachés */
+}
+
+.testimonial-item.active {
+    display: block; /* Afficher le témoignage actif */
+}
+
+.testimonial-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 20px;
+}
+
+.testimonial-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.testimonial-text footer {
+    font-style: italic;
+    color: #777;
+}
+
+
+
+
 </style>
 
 
@@ -475,7 +529,7 @@
 <div class="team-section">
 
     <div class="team-member">
-        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <img src="{% static 'images/john.avif' %}" alt="Team Member">
         <div class="member-details">
             <h3>John Doe</h3>
             <p>CEO & Founder</p>
@@ -489,7 +543,7 @@
     </div>
 
     <div class="team-member">
-        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <img src="{% static 'images/femme.jpg' %}" alt="Team Member">
         <div class="member-details">
             <h3>Jane Smith</h3>
             <p>Marketing Manager</p>
@@ -503,7 +557,7 @@
     </div>
 
     <div class="team-member">
-        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <img src="{% static 'images/femme.jpg' %}" alt="Team Member">
         <div class="member-details">
             <h3>Jane Smith</h3>
             <p>Marketing Manager</p>
@@ -517,7 +571,7 @@
     </div>
 
     <div class="team-member">
-        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <img src="{% static 'images/femme.jpg' %}" alt="Team Member">
         <div class="member-details">
             <h3>Jane Smith</h3>
             <p>Marketing Manager</p>
@@ -549,7 +603,7 @@
 
     <!--
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
     <script>
         var slideIndex = 0;
@@ -570,23 +624,60 @@
         function plusSlides(n) {
             showSlides(slideIndex += n);
         }
-    </script>
+    </script> -->
 
-    <h2 class="section-title">Nos Solutions Innovantes</h2>
-    <div class="carousel">
-        <div class="carousel-item active">
-            <blockquote>
-                <p>"AskDemoApp a révolutionné notre façon de gérer les demos. Nous gagnons un temps précieux pour le processus."</p>
-                <footer>- AskdemoApp</footer>
-            </blockquote>
+    <h2 class="section-title" style="text-align: center;">Nos Solutions Innovantes</h2>
+
+<div class="testimonial-carousel">
+        <div class="testimonial-item active">
+            <div class="testimonial-content">
+                <div class="testimonial-text">
+                    <p>"Notre équipe a trouvé en AskDemoApp une solution efficace pour gérer nos démos en un temps record."</p>
+                    <footer>- Équipe de Développement</footer>
+                </div>
+                <div class="testimonial-author">
+                    <img src="{% static 'images/21513.jpg' %}" alt="Person 1">
+                </div>
+            </div>
         </div>
-        <div class="carousel-item">
-            <blockquote>
-                <p>"Grâce à AskDemoApp, nous avons pu augmenter notre taux de conversion de 30%. L'application est un atout majeur pour les écoles."</p>
-                <footer>- AskdemoApp</footer>
-            </blockquote>
+        <div class="testimonial-item">
+            <div class="testimonial-content">
+                <div class="testimonial-text">
+                    <p>"AskDemoApp nous a permis d'optimiser nos processus et d'améliorer notre efficacité globale."</p>
+                    <footer>- Directrice des Opérations</footer>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/100x100?text=Person2" alt="Person 2">
+                </div>
+            </div>
         </div>
+        <div class="testimonial-item">
+            <div class="testimonial-content">
+                <div class="testimonial-text">
+                    <p>"Grâce à AskDemoApp, nos taux de conversion ont augmenté de manière significative, un outil indispensable."</p>
+                    <footer>- Responsable Marketing</footer>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/100x100?text=Person3" alt="Person 3">
+                </div>
+            </div>
+        </div>
+        <!-- Ajoutez plus de témoignages selon vos besoins -->
     </div>
+
+    <script>
+        // JavaScript pour le carousel de témoignages
+        const items = document.querySelectorAll('.testimonial-item');
+        let currentIndex = 0;
+
+        function carousel() {
+            items[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % items.length;
+            items[currentIndex].classList.add('active');
+        }
+
+        setInterval(carousel, 5000); // Défilement automatique toutes les 5 secondes
+    </script>
 
 
 
