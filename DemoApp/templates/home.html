@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-oXiEodHR0Oiyl2nOKWqOQsPr4JvZlyWpJUIoCs8AoqCgTOdMu0Mu9Vsz3DQmfCDRIYdVmi+8PxxB3m9etkx/Ew==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <style>
     .intro-text{
         font-size: 18px;
@@ -80,7 +82,7 @@
     .rectangle {
         flex: 1;
         padding: 20px;
-        background-color: #04AA6D;
+        background: linear-gradient(90deg, #2196f3, #4caf50);
         border: 1px solid #ccc;
         text-align: center;
         margin: 0 10px;
@@ -117,10 +119,229 @@
             margin: 10px 0;
         }
     }
+
+
+
+    .dynamic-rectangle {
+    display: flex;  /* Utilisation de flexbox pour organiser le contenu en ligne */
+    align-items: center;  /* Centrer verticalement les éléments */
+    color: black;  /* Couleur du texte */
+    padding: 12px;  /* Espacement intérieur du rectangle */
+    width: 70%;
+    margin-left 65%;
+    border-radius: 6px;
+
+}
+
+.dynamic-rectangle .content-wrapper {
+    flex: 1;  /* Permet à ce conteneur de s'étendre autant que possible */
+    max-width: 60%;  /* Limite la largeur du contenu texte */
+    margin-left: 45%;
+}
+
+.dynamic-rectangle .content-wrapper h2 {
+    font-size: 24px;  /* Taille de police pour le titre */
+    margin-bottom: 10px;  /* Espacement en bas du titre */
+}
+
+.dynamic-rectangle .content-wrapper p {
+    font-size: 18px;  /* Taille de police pour le texte */
+    line-height: 1.6;  /* Hauteur de ligne pour améliorer la lisibilité */
+    margin-bottom: 8px;  /* Espacement en bas du paragraphe */
+    margin-right: 20px;
+}
+
+.dynamic-rectangle .image {
+    flex: 1;  /* Permet à ce conteneur de s'étendre autant que possible */
+    text-align: right;  /* Alignement du contenu à droite */
+}
+
+.dynamic-rectangle .image img {
+    max-width: 200%;  /* Image responsive à l'intérieur de son conteneur */
+    height: 70%; /* Ajustement automatique de la hauteur */
+}
+
+.afterFooter {
+    background: linear-gradient(90deg, #2196f3, #4caf50);
+    color: #fff;  /* Couleur du texte */
+    opacity: 0.9;
+    padding: 80px 0;  /* Espacement intérieur */
+}
+
+.afterFooter .content-wrapper {
+    display: flex;  /* Utilisation de flexbox pour organiser le contenu en ligne */
+    align-items: center;  /* Centrer verticalement les éléments */
+    justify-content: space-between;  /* Espace équitable entre les éléments */
+    max-width: 1200px;  /* Limite la largeur maximale */
+    margin: 0 auto;  /* Centre le contenu horizontalement */
+    padding: 0 20px;  /* Espacement intérieur sur les côtés */
+}
+
+.afterFooter .content-wrapper .contente {
+    flex: 1;  /* Permet à ce conteneur de s'étendre autant que possible */
+}
+
+.afterFooter .content-wrapper .contente h2 {
+    font-size: 32px;  /* Taille de police pour le titre */
+    margin-bottom: 20px;  /* Espacement en bas du titre */
+}
+
+.afterFooter .content-wrapper .contente p {
+    font-size: 17px;  /* Taille de police pour le texte */
+    line-height: 1.6;  /* Hauteur de ligne pour améliorer la lisibilité */
+    margin-bottom: 30px;  /* Espacement en bas du paragraphe */
+    margin-right: 50px;
+}
+
+.afterFooter .content-wrapper .image {
+    flex: 1;  /* Permet à ce conteneur de s'étendre autant que possible */
+    text-align: right;  /* Alignement du contenu à droite */
+}
+
+.afterFooter .content-wrapper .image img {
+    max-width: 250%;  /* Image responsive à l'intérieur de son conteneur */
+    height: 70%;  /* Ajustement automatique de la hauteur */
+}
+
+
+.content-wrapper {
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    color: white; /* Couleur du texte */
+    padding: 20px; /* Espacement intérieur */
+    margin-left: 300px;
+}
+
+.content {
+    flex: 1; /* Permet à ce conteneur de s'étendre autant que possible */
+    text-align: center; /* Centre le texte à l'intérieur */
+}
+
+.button {
+    margin-left: 20px; /* Marge entre le contenu et le bouton */
+}
+
+    .decouvrir{
+        margin-top: 15px;
+        color: #2196f3;
+    }
+
+
+    .confiance{
+        text-align: center;
+        margin-top: 70px;
+    }
+
+  .logo-carousel {
+            overflow: hidden;
+            width: 100%; /* Ajustez la largeur selon vos besoins */
+            height: 100px; /* Ajustez la hauteur selon vos besoins */
+            display: flex;
+            align-items: center;
+            justify-content: space-around; /* Centrer horizontalement les logos */
+        }
+
+        .logo-carousel img {
+            max-width: 150px; /* Ajustez la taille des images selon vos besoins */
+            max-height: 80px; /* Ajustez la taille des images selon vos besoins */
+            margin: 0 10px; /* Espace entre les logos */
+            transition: transform 0.8s ease;
+        }
+
+        .logo-carousel img:hover {
+            transform: scale(1.1); /* Effet de zoom au survol */
+        }
+
+
+
+    .content-container {
+        background-color: #fff; /* Fond blanc */
+        border: 1px solid #ccc; /* Bordure grise pour délimiter */
+        padding: 20px; /* Espacement intérieur */
+        display: flex; /* Utilisation de flexbox pour aligner les éléments */
+        align-items: center; /* Centrer verticalement les éléments */
+        width: 65%;
+        margin-left: 20%;
+        border-radius: 8px;
+        }
+
+    .image-container {
+        flex: 1; /* Prend 1/3 de l'espace disponible */
+        margin-right: 20px; /* Marge à droite pour séparer de texte */
+    }
+
+    .image-container img {
+        max-width: 100%; /* Image s'adapte à la largeur disponible */
+        height: auto; /* Hauteur automatique pour conserver le ratio */
+        display: block; /* Supprime le léger espace sous l'image */
+    }
+
+    .text-container {
+        flex: 2; /* Prend 2/3 de l'espace disponible */
+    }
+
+
+
+
+    .team-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px;
+}
+
+.team-member {
+    max-width: 300px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.member-details h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.member-details p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    margin: 0 5px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #0056b3;
+}
+
 </style>
 
 
-
+<!--
 <div class="container">
     <h1 class="welcome-title">Bienvenue sur AskDemoApp !</h1>
     <p class="intro-text">Découvrez notre application innovante qui simplifie la gestion des demandes de démonstration. AskDemoApp est fait pour vous.</p>
@@ -149,14 +370,186 @@
                 </div>
             </div>
         </div>
-
+         </div>
+-->
         <!-- Ajoutez plus de slides au besoin -->
+    <div class="dynamic-rectangle" style="padding-top: 0px; padding-bottom: 0px;">
+    <div class="content-wrapper">
+        <p style="color: black;">Découvrez DefenseScheduler pour l'optimisation de vos soutenances.</p>
+        <a href="#" class="decouvrir">Découvrir</a>
     </div>
-    <br> <br>
+</div>
 
-    <!-- Boutons de navigation -->
+    <div class="afterFooter">
+    <div class="content-wrapper">
+        <div class="contente">
+            <h2>Démonstration gratuite et personnalisée</h2>
+            <p>Profitez d'une technologie de pointe exploitant intelligemment une vaste quantité de données universitaires, et obtenez les meilleures recommandations pour la gestion efficace des soutenances académiques.</p>
+        </div>
+        <div class="image">
+            <img src="{% static 'images/21513.jpg' %}" alt="Votre Image" style="width: 150%; border-radius: 8px; overflow: hidden; ">
+        </div>
+    </div>
+
+        <p class="confiance"> Plus de 10 écoles et facultés du Bénin  nous font confiance </p>
+
+<div class="logo-carousel">
+        <div id="carousel-inner" class="carousel-inner" style="margin-right: 50px; margin-left: 50px;">
+            <img src="{% static 'images/ifri.png' %}" alt="Logo 1">
+            <img src="{% static 'images/logo3.webp' %}" alt="Logo 1">
+            <img src="{% static 'images/logo1.jpeg' %}" alt="Logo 4">
+            <img src="{% static 'images/logo2.jpg' %}" alt="Logo 5">
+            <!-- Ajoutez autant d'images que nécessaire -->
+        </div>
+    </div>
+
+    <!-- JavaScript pour le défilement automatique
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const carouselInner = document.getElementById('carousel-inner');
+            const images = carouselInner.querySelectorAll('img');
+            let currentIndex = 0;
+            const intervalTime = 3000; // Intervalle en millisecondes entre chaque changement d'image
+
+            function slide() {
+                // Masquer l'image actuelle
+                images[currentIndex].style.opacity = 0;
+
+                // Passer à l'image suivante
+                currentIndex++;
+                if (currentIndex >= images.length) {
+                    currentIndex = 0;
+                }
+
+                // Afficher l'image suivante
+                images[currentIndex].style.opacity = 1;
+
+                // Répéter l'animation après l'intervalle de temps spécifié
+                setTimeout(slide, intervalTime);
+            }
+
+            // Démarrer le défilement automatique au chargement de la page
+            slide();
+        });
+    </script> -->
+</div>
+<br> <br>
+
+<div class="content-container">
+    <div class="image-container">
+        <img src="{% static 'images/21513.jpg' %}" alt="Image à gauche" style="width: 80%; height: auto;">
+    </div>
+    <div class="text-container">
+        <h2>Titre du texte</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero eget vestibulum sagittis. In eleifend leo at mauris fringilla, vitae aliquam odio condimentum.</p>
+    </div>
+</div>
+
+
+<div class="Mdemo" style="background-color: #F8F8FF; padding: 20px; border-radius: 8px;">
+    <h2 style="color: #333; margin-left: 40%;">Une solution de pointe</h2>
+    <div style="display: flex; align-items: center; margin-bottom: 20px; margin-left: 20%;">
+        <img src="{% static 'images/21513.jpg' %}" alt="Semji Logo" style="width: 100px; height: 100px; margin-right: 20px; border-radius: 50%;">
+        <div>
+            <p>DefenseScheduler offre une puissance inégalée pour optimiser la gestion des soutenances de vos étudiants .</p>
+            <p>Utilisez DefenseScheduler pour tirer parti de toute la puissance de la solution directement depuis chez vous.</p>
+        </div>
+    </div>
+    <div style="margin-bottom: 20px;">
+        <h3 style="color: #333; margin-left: 20%;">Pourquoi choisir DefenseScheduler ?</h3>
+        <ul style="list-style-type: disc; margin-left: 20%;">
+            <li>Bonne gestion des soutenances</li>
+            <li>Intégration facile avec vos CMS préférés comme WordPress, Drupal, Joomla, etc.</li>
+            <li>Optimisation intelligente de vos contenus pour une visibilité accrue.</li>
+            <li>Interface intuitive et conviviale pour une utilisation optimale.</li>
+        </ul>
+    </div>
+    <div style="text-align: center;">
+        <a href="#" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Découvrir DefenseScheduler</a>
+    </div>
+</div>
+
+
+
+<h2 style="text-align: center;"> Our team </h2>
+<div class="team-section">
+
+    <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <div class="member-details">
+            <h3>John Doe</h3>
+            <p>CEO & Founder</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida diam.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <div class="member-details">
+            <h3>Jane Smith</h3>
+            <p>Marketing Manager</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida diam.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <div class="member-details">
+            <h3>Jane Smith</h3>
+            <p>Marketing Manager</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida diam.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <div class="member-details">
+            <h3>Jane Smith</h3>
+            <p>Marketing Manager</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida diam.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ajoutez plus de membres d'équipe selon vos besoins -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
 
     <script>
         var slideIndex = 0;
@@ -171,7 +564,7 @@
             slideIndex++;
             if (slideIndex > slides.length) {slideIndex = 1}
             slides[slideIndex-1].style.display = "block";
-            setTimeout(showSlides, 30000); // Change image every 5 seconds
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
         }
 
         function plusSlides(n) {
@@ -194,7 +587,7 @@
             </blockquote>
         </div>
     </div>
-</div>
+
 
 
 <!-- Rectangles avec texte -->

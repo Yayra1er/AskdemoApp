@@ -41,10 +41,7 @@ body {
         display: flex;
     }
 
-    .topnav .right {
-        margin-right: 0;
-        margin-left: auto; /* Pushes .right to the right */
-    }
+
 }
 
 /* Media query for mobile version (max-width: 600px) is already defined */
