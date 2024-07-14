@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% extends 'base.html' %}
 {% load static %}
 
 <html lang="fr">
@@ -16,15 +15,73 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            display: flex; /* Utilisation de flexbox pour la mise en page */
+            justify-content: space-between; /* Répartit l'espace entre les deux sections */
+            height: 100vh; /* Hauteur de la page */
         }
 
         main {
-            padding: 20px;
+            display: flex; /* Flexbox pour les deux colonnes */
+            width: 100%; /* Pour occuper toute la largeur */
+            height: 100%;
         }
 
-        h2 {
-            color: #333;
-            border-bottom: 2px solid #28a745;
+        .left-column {
+            background-color: #fff; /* Fond blanc pour la colonne de gauche */
+            flex: 1; /* Occupe 50% de l'espace disponible */
+            padding: 20px; /* Espacement intérieur */
+            background-image: url('{% static "images/diplomes.jpg" %}');
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
+    background-position: center; /* Centre l'image horizontalement et verticalement */
+    color: white;
+        }
+
+
+
+               .demo-benefits-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.demo-benefits-list li {
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.demo-benefits-list li:hover {
+    background-color: black;
+}
+
+.benefit-details {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #28a745;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    opacity: 0.7;
+}
+
+.benefit-details p {
+    margin: 0;
+}
+
+
+
+
+        .right-column {
+            background-color: white;
+            flex: 1; /* Occupe 50% de l'espace disponible */
+            padding: 20px; /* Espacement intérieur */
+            color: black; /* Couleur de texte blanche */
+        }
+
+        .right-column h2 {
+            color: #fff;
+            border-bottom: 2px solid #fff;
             padding-bottom: 5px;
         }
 
@@ -35,8 +92,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 80%;
-            margin: 0 auto;
+            width: 95%;
         }
 
         .form-group {
@@ -71,7 +127,6 @@
             display: block;
             margin-top: 10px;
             width: 100%; /* Centrage horizontal */
-            margin: 0 auto; /* Centrage horizontal */
             max-width: 200px; /* Largeur maximale */
         }
 
@@ -92,9 +147,7 @@
             transition: background-color 0.3s;
         }
 
-        .demo-benefits-list li:hover {
-            background-color: #f9f9f9;
-        }
+
 
         .benefit-details {
             display: none;
@@ -111,9 +164,14 @@
         }
 
         @media (max-width: 768px) {
-            .section-rectangle {
-                width: 100%;
-                margin: 0 10px;
+            main {
+                flex-direction: column; /* Pour les petits écrans, passe en colonne */
+            }
+
+            .left-column, .right-column {
+                width: 100%; /* Pleine largeur sur les petits écrans */
+                margin: 0;
+                padding: 10px;
             }
         }
 
@@ -129,17 +187,55 @@
 </head>
 <body>
 <main>
-    <section id="introduction" class="section-rectangle">
+    <section class="left-column">
+                            <img src="{% static 'images/DS-New.png' %}" alt="Slide 2" style="width:6%; height: 7%; margin-left: 100px;">
+
+         <section id="introduction" >
         <div class="container">
             <h2>Introduction à la Démo</h2>
             <p>Voyez comment notre application peut transformer la gestion de vos soutenances en demandant une démonstration personnalisée.</p>
         </div>
     </section>
-    <br>
+    <div class="container">
+        <h2>Avantages de la Démo</h2>
+        <ul class="demo-benefits-list">
+            <li onclick="toggleBenefitDetails(this)">
+                Aperçu complet des fonctionnalités de notre application.
+                <div class="benefit-details">
+                    <p>Explorez toutes les fonctionnalités de notre application pour une gestion optimale.</p>
+                </div>
+            </li>
+            <li onclick="toggleBenefitDetails(this)">
+                Session de questions-réponses avec nos experts.
+                <div class="benefit-details">
+                    <p>Profitez d'une session interactive pour poser toutes vos questions à nos experts.</p>
+                </div>
+            </li>
+            <li onclick="toggleBenefitDetails(this)">
+                Conseils personnalisés pour l'implémentation dans votre institution.
+                <div class="benefit-details">
+                    <p>Recevez des conseils adaptés à vos besoins pour une intégration réussie dans votre institution.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
 
-    <section id="demo-form" class="section-rectangle">
+        <script>
+
+            function toggleBenefitDetails(element) {
+    var details = element.querySelector('.benefit-details');
+    details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
+}
+
+        </script>
+</section>
+
+
+
+
+    <section class="right-column">
         <div class="container">
-            <h2>Formulaire de Demande de Démo</h2>
+            <h2 style="color: black;">Formulaire de Demande de Démo</h2>
             <form action="#" method="POST" id="demoForm">
                 {% csrf_token %}
                 <div class="form-group">
@@ -169,32 +265,6 @@
                 </div>
                 <button type="submit">Envoyer</button>
             </form>
-        </div>
-    </section>
-    <br>
-    <section id="demo-benefits" class="section-rectangle">
-        <div class="container">
-            <h2>Avantages de la Démo</h2>
-            <ul class="demo-benefits-list">
-                <li onclick="toggleBenefitDetails(this)">
-                    Aperçu complet des fonctionnalités de notre application.
-                    <div class="benefit-details">
-                        <p>Explorez toutes les fonctionnalités de notre application pour une gestion optimale.</p>
-                    </div>
-                </li>
-                <li onclick="toggleBenefitDetails(this)">
-                    Session de questions-réponses avec nos experts.
-                    <div class="benefit-details">
-                        <p>Profitez d'une session interactive pour poser toutes vos questions à nos experts.</p>
-                    </div>
-                </li>
-                <li onclick="toggleBenefitDetails(this)">
-                    Conseils personnalisés pour l'implémentation dans votre institution.
-                    <div class="benefit-details">
-                        <p>Recevez des conseils adaptés à vos besoins pour une intégration réussie dans votre institution.</p>
-                    </div>
-                </li>
-            </ul>
         </div>
     </section>
 </main>

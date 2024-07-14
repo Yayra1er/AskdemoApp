@@ -33,6 +33,7 @@
             padding-bottom: 5px;
             text-align: center;
             margin-bottom: 30px;
+            font-size: 2rem;
         }
 
         .contact-form {
@@ -99,6 +100,20 @@
             margin-bottom: 10px;
         }
 
+        .contact-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info a {
+            color: #28a745;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
         .map-container {
             position: relative;
             width: 100%;
@@ -115,8 +130,28 @@
             object-fit: cover;
         }
 
-        button {
-            margin-left: 40%;
+        .btn-back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            display: none;
+        }
+
+        .btn-back-to-top:hover {
+            background-color: #218838;
+        }
+
+
+        .submit{
+            margin-left: 45%;
+
         }
     </style>
 </head>
@@ -146,17 +181,17 @@
                         <textarea id="message" name="message" required></textarea>
                     </div>
                     <div class="form-group">
-                        <button type="submit">Envoyer</button>
+                        <button type="submit" class="submit">Envoyer</button>
                     </div>
                 </form>
             </div>
 
             <div class="contact-info">
                 <h3>Informations de Contact</h3>
-                <p>Adresse : 229 Rue de l'Innovation, Cotonou, BENIN</p>
-                <p>Téléphone : +229 64 47 36 87</p>
-                <p>Email : contact@notreplateforme.com</p>
-                <p>Réseaux Sociaux :
+                <p><strong>Adresse :</strong> 229 Rue de l'Innovation, Cotonou, BENIN</p>
+                <p><strong>Téléphone :</strong> +229 64 47 36 87</p>
+                <p><strong>Email :</strong> <a href="mailto:contact@notreplateforme.com">contact@notreplateforme.com</a></p>
+                <p><strong>Réseaux Sociaux :</strong>
                     <a href="#" target="_blank">Facebook</a>,
                     <a href="#" target="_blank">Twitter</a>,
                     <a href="#" target="_blank">LinkedIn</a>
@@ -168,6 +203,7 @@
         </div>
     </section>
 </main>
+<button class="btn-back-to-top" onclick="scrollToTop()">Retour en haut</button>
 <script>
     // JavaScript for Google Maps
     function initMap() {
@@ -186,6 +222,27 @@
             map: map,
             title: "DemoApp Headquarters", // Replace with your location name
         });
+    }
+
+    // Function to scroll to the top of the page
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    // Show back to top button when scrolling down
+    window.onscroll = function() {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.querySelector('.btn-back-to-top').style.display = "block";
+        } else {
+            document.querySelector('.btn-back-to-top').style.display = "none";
+        }
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
