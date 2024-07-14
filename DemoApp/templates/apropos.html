@@ -74,14 +74,24 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            margin: 0 auto;
-            max-width: none; /* Ajout pour occuper toute la largeur disponible */
             transition: transform 0.3s ease-in-out;
+            width: calc(50% - 30px); /* calculer la largeur pour deux sections côte à côte avec marge */
+            margin-right: 30px; /* espace entre les sections */
+            display: inline-block; /* afficher en ligne */
+            vertical-align: top; /* alignement vertical */
         }
 
-        .section-rectangle:hover {
-            transform: scale(1.02);
+        @media (max-width: 991px) {
+            .section-rectangle {
+                width: 100%; /* sur un écran plus petit, reprendre la largeur complète */
+                margin-right: 0; /* aucune marge sur un écran plus petit */
+                display: block; /* afficher en bloc */
+            }
+        }
+
+        .features {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .features ul {
@@ -89,15 +99,15 @@
             padding: 0;
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between; /* espace uniforme entre les éléments */
         }
 
         .features ul li {
-            flex: 1 1 45%;
+            flex: 1 1 calc(45% - 10px); /* calcule la largeur avec espacement entre les éléments */
             margin-bottom: 10px;
             background: #e9ecef;
             padding: 10px;
             border-radius: 5px;
-            margin: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -207,6 +217,88 @@
         .container {
             margin-left: 12%;
         }
+
+        /* Nouveau style pour aligner les sections rectangulaires sur la même ligne */
+        .two-sections {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .two-sections .section-rectangle {
+            width: calc(50% - 30px);
+            margin-right: 30px;
+        }
+
+        @media (max-width: 991px) {
+            .two-sections {
+                flex-direction: column;
+            }
+
+            .two-sections .section-rectangle {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Positionnement de la section FAQ à droite de la section Illustrations */
+        #illustrations {
+            float: left;
+            width: calc(50% - 30px);
+            margin-right: 30px;
+
+        }
+
+        #faq {
+            float: left;
+            width: calc(50% - 30px);
+        }
+
+        @media (max-width: 991px) {
+            #illustrations,
+            #faq {
+                float: none;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+
+
+
+        #demo-features {
+            float: left;
+            width: calc(50% - 30px);
+            margin-right: 30px;
+        }
+
+        #solution {
+            float: left;
+            width: calc(50% - 30px);
+        }
+
+        @media (max-width: 991px) {
+            #demo-features,
+            #solution {
+                float: none;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+        #cont{
+            margin-top: 30%;
+            width: 110%;
+            height: 110%;
+            margin-left: -30px;
+        }
+
+
+
+
     </style>
 </head>
 <body>
@@ -217,55 +309,44 @@
             <p>DefenseScheduler propose aux écoles des contenus appropriés, les outils dont elles ont besoin pour gérer rapidement les soutenances.</p>
         </div>
     </div>
-  <section class="left-column">
-    <section id="organization" class="section-rectangle">
-        <div class="container">
-            <h2>Présentation de l'organisation</h2>
-            <p>Depuis notre création en 2010, nous nous engageons à fournir des solutions innovantes pour les institutions académiques.
-            Notre mission est de simplifier et d'améliorer la gestion des soutenances pour les universités et les instituts de recherche.
-            Nous visons à réduire le temps de planification des soutenances grâce à notre solution intégrée.
-            Nos équipes sont composées d'experts dédiés à l'amélioration continue de nos produits pour répondre aux besoins spécifiques de nos clients.</p>
-        </div>
-    </section>
-
-    <section id="solution" class="section-rectangle">
-        <div class="container">
-            <h2>Détails sur la solution</h2>
-            <div class="features">
-                <h3>Fonctionnalités principales</h3>
-                <ul>
-                    <li>Planification automatique des soutenances</li>
-                    <li>Rappels et notifications</li>
-                    <li>Tableau de bord intuitif</li>
-                    <li>Gestion des participants</li>
-                </ul>
-                <h3>Avantages pour les utilisateurs</h3>
-                <p>Grâce à notre solution, les institutions peuvent optimiser leur processus de gestion des soutenances et améliorer l'expérience utilisateur pour tous les participants.</p>
-                <h3>Témoignages de clients</h3>
-                <div class="testimonials">
-                    <blockquote>
-                        <p>Grâce à cette solution, nous avons réduit le temps de planification des soutenances de 50%.</p>
-                        <footer>- Université XYZ</footer>
-                    </blockquote>
+    <div class="two-sections">
+        <section id="illustrations" class="section-rectangle">
+            <div class="container" id="cont">
+                <h2>Illustrations</h2>
+                <div class="gallery">
+                    <img src="{% static 'images/demo4.jpg' %}" alt="Illustration 1" style="width: 100%; height: 100%;">
+                    <img src="{% static 'images/demo3.jpg' %}" alt="Illustration 2">
+                    <img src="{% static 'images/demo2.png' %}" alt="Illustration 3">
                 </div>
             </div>
-        </div>
-    </section>
- </section>
+        </section>
 
-
-    <section id="illustrations" class="section-rectangle">
-        <div class="container">
-            <h2>Illustrations</h2>
-            <div class="gallery">
-                <img src="{% static 'images/demo4.jpg' %}" alt="Illustration 1">
-                <img src="{% static 'images/demo3.jpg' %}" alt="Illustration 2">
-                <img src="{% static 'images/demo2.png' %}" alt="Illustration 3">
+        <section id="faq" class="section-rectangle">
+            <div class="container faq">
+                <h2>FAQ</h2>
+                <div class="faq-item">
+                    <button class="accordion">Qu'est-ce que DemoApp?</button>
+                    <div class="faq-content">
+                        <p>DemoApp est une application innovante pour la gestion des soutenances académiques, permettant de simplifier et d'optimiser le processus pour les institutions.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="accordion">Comment fonctionne la planification automatique?</button>
+                    <div class="faq-content">
+                        <p>La planification automatique utilise les disponibilités des participants pour créer un emploi du temps optimisé.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="accordion">Quels sont les avantages de DemoApp?</button>
+                    <div class="faq-content">
+                        <p>DemoApp offre une réduction du temps de planification, des rappels et notifications automatisés, et une gestion simplifiée des participants.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="demo-features" class="section-rectangle">
+
+        <div class="section-rectangle" id="demo-features">
         <div class="container">
             <h2>Fonctionnalités en Démo</h2>
             <div class="feature-tabs">
@@ -291,31 +372,35 @@
                 <p>Gérez facilement les participants, leurs rôles, et leurs disponibilités pour chaque soutenance.</p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="faq" class="section-rectangle">
-        <div class="container faq">
-            <h2>FAQ</h2>
-            <div class="faq-item">
-                <button class="accordion">Qu'est-ce que DemoApp?</button>
-                <div class="faq-content">
-                    <p>DemoApp est une application innovante pour la gestion des soutenances académiques, permettant de simplifier et d'optimiser le processus pour les institutions.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="accordion">Comment fonctionne la planification automatique?</button>
-                <div class="faq-content">
-                    <p>La planification automatique utilise les disponibilités des participants pour créer un emploi du temps optimisé.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="accordion">Quels sont les avantages de DemoApp?</button>
-                <div class="faq-content">
-                    <p>DemoApp offre une réduction du temps de planification, des rappels et notifications automatisés, et une gestion simplifiée des participants.</p>
+
+
+
+         <div class="section-rectangle" id="solution">
+        <div class="container">
+            <h2>Détails sur la solution</h2>
+            <div class="features">
+                <h3>Fonctionnalités principales</h3>
+                <ul>
+                    <li>Planification automatique des soutenances</li>
+                    <li>Rappels et notifications</li>
+                    <li>Tableau de bord intuitif</li>
+                    <li>Gestion des participants</li>
+                </ul>
+                <h3>Avantages pour les utilisateurs</h3>
+                <p>Grâce à notre solution, les institutions peuvent optimiser leur processus de gestion des soutenances et améliorer l'expérience utilisateur pour tous les participants.</p>
+                <h3>Témoignages de clients</h3>
+                <div class="testimonials">
+                    <blockquote>
+                        <p>Grâce à cette solution, nous avons réduit le temps de planification des soutenances de 50%.</p>
+                        <footer>- Université XYZ</footer>
+                    </blockquote>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    </div>
 </main>
 
 <script>
