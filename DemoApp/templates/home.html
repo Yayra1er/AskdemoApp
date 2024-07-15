@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-oXiEodHR0Oiyl2nOKWqOQsPr4JvZlyWpJUIoCs8AoqCgTOdMu0Mu9Vsz3DQmfCDRIYdVmi+8PxxB3m9etkx/Ew==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Slick Carousel -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <style>
     .intro-text{
@@ -72,41 +77,100 @@
 
 
       /* Styles spécifiques aux rectangles */
-    .rectangle-container {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-        margin-bottom: 20px;
+.rectangle-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    margin: 20px 0;
+    flex-wrap: wrap; /* Permet aux rectangles de passer à la ligne si l'espace est insuffisant */
+}
 
+.rectangle {
+    display: flex;
+    flex-direction: column; /* Dispose le contenu en colonne */
+    align-items: flex-start; /* Aligne le contenu à gauche */
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    margin-bottom: 20px; /* Espace entre les rectangles */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.rectangle:hover {
+    transform: translateY(-5px);
+}
+
+.rectangle img {
+    width: 100%; /* Largeur maximale de l'image à 100% du conteneur */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+    max-width: 100%; /* Garde l'image dans les limites du conteneur */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px; /* Espace sous l'image */
+}
+
+.rectangle .text {
+    flex: 1;
+}
+
+.rectangle h2 {
+    font-size: 20px; /* Taille de police réduite pour les petits écrans */
+    margin-bottom: 10px;
+}
+
+.rectangle p {
+    font-size: 14px; /* Taille de police réduite pour les petits écrans */
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.rectangle a.btn {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.rectangle a.btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Définition de dimensions égales pour les images */
+.rectangle img {
+    width: 100%; /* Largeur maximale de l'image à 100% du conteneur */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+    max-width: 100%; /* Garde l'image dans les limites du conteneur */
+    height: 460px; /* Hauteur fixe pour assurer la même taille sur tous les appareils */
+    object-fit: cover; /* Assure que l'image couvre toute la zone définie */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px; /* Espace sous l'image */
+}
+
+/* Media queries pour les écrans plus petits */
+@media screen and (max-width: 768px) {
+    .rectangle {
+        width: 100%; /* Occupe toute la largeur sur les petits écrans */
     }
 
-    .rectangle {
-        flex: 1;
-        padding: 20px;
-        background-color: #c1d9bc;
-        border: 1px solid #ccc;
-        text-align: center;
-        margin: 0 10px;
-        border-radius: 10px;
+    .rectangle img {
+        height: 150px; /* Hauteur fixe pour les petits écrans */
+    }
+
+    .rectangle h2 {
+        font-size: 18px; /* Taille de police réduite pour les petits écrans */
     }
 
     .rectangle p {
-        margin: 10px 0;
-        font-size: 16px;
+        font-size: 14px; /* Taille de police réduite pour les petits écrans */
     }
+}
 
-    /* Couleurs différentes pour chaque rectangle */
-    .rectangle:nth-child(1) {
-        background-color: #c1d9bc;
-    }
 
-    .rectangle:nth-child(2) {
-        background-color:#c1d9bc;
-    }
-
-    .rectangle:nth-child(3) {
-        background-color: #c1d9bc;
-    }
 
 
 
@@ -427,13 +491,13 @@
         </div>
          </div>
 -->
-        <!-- Ajoutez plus de slides au besoin -->
+        <!-- Ajoutez plus de slides au besoin
     <div class="dynamic-rectangle" style="padding-top: 0px; padding-bottom: 0px;">
     <div class="content-wrapper">
         <p style="color: black;">Découvrez DefenseScheduler pour l'optimisation de vos soutenances.</p>
         <a href="#" class="decouvrir">Découvrir</a>
     </div>
-</div>
+</div> -->
 
     <div class="afterFooter">
     <div class="content-wrapper">
@@ -450,15 +514,36 @@
 
 <div class="logo-carousel">
         <div id="carousel-inner" class="carousel-inner" style="margin-right: 50px; margin-left: 50px;">
-            <img src="{% static 'images/ifri.png' %}" alt="Logo 1">
-                        <img src="{% static 'images/fsa.jpg' %}" alt="Logo 1">
+            <img src="{% static 'images/ifri.png' %}" alt="Logo ifri">
+                        <img src="{% static 'images/fsa.jpg' %}" alt="Logo fsa">
 
-            <img src="{% static 'images/logo3.webp' %}" alt="Logo 1">
-            <img src="{% static 'images/logo1.jpeg' %}" alt="Logo 4">
-            <img src="{% static 'images/logo2.jpg' %}" alt="Logo 5">
+            <img src="{% static 'images/ena.jpg' %}" alt="Logo ena">
+            <img src="{% static 'images/eneam.png' %}" alt="Logo 4">
+            <img src="{% static 'images/epac.jpeg' %}" alt="Logo 5">
             <!-- Ajoutez autant d'images que nécessaire -->
         </div>
     </div>
+
+        <script>
+
+    $(document).ready(function(){
+        $('.carousel-inner').slick({
+            slidesToShow: 4, // Nombre de logos affichés à la fois
+            slidesToScroll: 1,
+            autoplay: true, // Défilement automatique
+            autoplaySpeed: 0, // Vitesse de défilement (0 pour un défilement continu)
+            speed: 3000, // Vitesse de transition entre les logos (ajustez selon votre préférence)
+            cssEase: 'linear', // Effet de transition linéaire pour un défilement fluide
+            infinite: false, // Défilement infini
+            pauseOnHover: false, // Ne pas mettre en pause lorsqu'on survole
+            centerMode: true, // Centre les logos actifs
+            variableWidth: true, // Permet la largeur variable pour s'adapter aux logos
+            prevArrow: false, // Masque la flèche précédente
+            nextArrow: false // Masque la flèche suivante
+        });
+    });
+
+        </script>
 
     <!-- JavaScript pour le défilement automatique
     <script>
@@ -497,10 +582,14 @@
         <img src="{% static 'images/21513.jpg' %}" alt="Image à gauche" style="width: 80%; height: auto;">
     </div>
     <div class="text-container">
-        <h2>Titre du texte</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero eget vestibulum sagittis. In eleifend leo at mauris fringilla, vitae aliquam odio condimentum.</p>
+        <h2>Gestion des Soutenances Universitaires au Bénin</h2>
+        <p>Notre plateforme facilite la gestion efficace des soutenances universitaires au Bénin, en offrant des outils modernes et intuitifs pour les responsables administratifs, les enseignants et les étudiants.</p>
+        <p>Nous nous engageons à simplifier le processus de planification, d'organisation et de suivi des soutenances, garantissant ainsi une expérience transparente et productive pour toutes les parties prenantes.</p>
+        <p>Avec notre système, les institutions peuvent rationaliser les tâches administratives, optimiser les ressources et offrir une expérience enrichissante aux étudiants pendant cette étape cruciale de leur parcours académique.</p>
     </div>
 </div>
+
+
 
 
 <div class="Mdemo" style="background-color: #F8F8FF; padding: 20px; border-radius: 8px;">
@@ -522,12 +611,12 @@
         </ul>
     </div>
     <div style="text-align: center;">
-        <a href="#" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Découvrir DefenseScheduler</a>
+        <a href="{% url 'solution' %}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; height: 25px;">Découvrir DefenseScheduler</a>
     </div>
 </div>
 
 
-
+<!--
 <h2 style="text-align: center;"> Our team </h2>
 <div class="team-section">
 
@@ -587,8 +676,7 @@
         </div>
     </div>
 
-    <!-- Ajoutez plus de membres d'équipe selon vos besoins -->
-</div>
+</div> -->
 
 
 
@@ -685,31 +773,29 @@
 
 
 <!-- Rectangles avec texte -->
-    <div class="rectangle-container">
-        <div class="rectangle">
-            <p>Gérer vos soutenances<br> <br> Simplifiez l'organisation de vos soutenances de thèse avec notre application. Planifiez, suivez et évaluez facilement chaque étape du processus. </p>
-        </div>
-        <div class="rectangle">
-            <p>Votre démo <br><br>  <a href="{% url 'solution' %}" class="btn btn-primary" style="background-color: white; color: black;">Demandez une Démo</a>
-
-</p>
+<div class="rectangle-container">
+    <div class="rectangle">
+        <div class="content">
+            <img src="{% static 'images/gerer.png' %}" alt="Image 1">
+            <div class="text">
+                <h2>Gérer vos soutenances</h2>
+                <p>Simplifiez l'organisation de vos soutenances de thèse avec notre application. Planifiez, suivez et évaluez facilement chaque étape du processus.</p>
+                <a href="{% url 'solution' %}" class="btn btn-primary" style="background: linear-gradient(90deg, #2196f3, #4caf50);">Demandez une Démo</a>
+            </div>
         </div>
     </div>
 
-
-<div class="rectangle-container">
     <div class="rectangle">
-        <div class="slogan">
-            <h2>Gestion efficace de vos soutenances, simplifiée.</h2>
-        </div>
-        <div class="presentation">
-            <p>Découvrez comment notre solution peut révolutionner la gestion des soutenances dans votre institution.</p>
-        </div>
-        <div class="cta-buttons">
-            <a href="{% url 'solution' %}" class="btn btn-primary" style="background-color: white; color: black;">Demandez une Démo</a>
-            <a href="{% url 'offre' %}" class="btn btn-secondary" style="background-color: white; color: black;">Explorez nos Offres</a>
+        <div class="content">
+            <img src="{% static 'images/demo.webp' %}" alt="Image 2">
+            <div class="text">
+                <h2>Votre démo</h2>
+                <p>Demandez une démo de notre solution pour découvrir comment elle peut optimiser la gestion de vos soutenances.</p>
+                <a href="{% url 'solution' %}" class="btn btn-primary" style="background: linear-gradient(90deg, #2196f3, #4caf50);">Demandez une Démo</a>
+            </div>
         </div>
     </div>
 </div>
+
 
 {% endblock %}

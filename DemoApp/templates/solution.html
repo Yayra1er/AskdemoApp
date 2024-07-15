@@ -1,6 +1,6 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-
 <html lang="fr">
 <head>
     {% block content %}
@@ -9,16 +9,6 @@
     <title>Demande de Démo - DemoApp</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            display: flex; /* Utilisation de flexbox pour la mise en page */
-            justify-content: space-between; /* Répartit l'espace entre les deux sections */
-            height: 100vh; /* Hauteur de la page */
-        }
 
         main {
             display: flex; /* Flexbox pour les deux colonnes */
@@ -31,22 +21,22 @@
             flex: 1; /* Occupe 50% de l'espace disponible */
             padding: 20px; /* Espacement intérieur */
             background-image: url('{% static "images/diplomes.jpg" %}');
-    background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
-    background-position: center; /* Centre l'image horizontalement et verticalement */
-    color: white;
+            background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
+            background-position: center; /* Centre l'image horizontalement et verticalement */
+            color: white;
         }
 
 
 
                .demo-benefits-list {
-    list-style-type: none;
-    padding: 0;
-}
+                    list-style-type: none;
+                    padding: 0;
+            }
 
-.demo-benefits-list li {
-    cursor: pointer;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
+        .demo-benefits-list li {
+            cursor: pointer;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
     transition: background-color 0.3s;
 }

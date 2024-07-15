@@ -54,6 +54,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
+            position: relative; /* Pour le positionnement de l'icône */
         }
 
         .plan-tab:hover {
@@ -107,6 +108,28 @@
             font-size: 1em;
         }
 
+        .plan-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .plan-icon {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 1.2em;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 1024px) {
             .plan-tab {
@@ -128,15 +151,23 @@
             <h2 class="section-title">Plans d'Abonnement</h2>
             <div class="plans-wrapper">
                 <div class="plan-tab active" data-tab="free-plan">
+                    <div class="plan-icon">1</div>
                     <h3 class="plan-name">Gratuit</h3>
+                    <img src="{% static 'images/gratuit.jpg' %}" alt="Gratuit Plan" class="plan-image">
                     <p class="plan-price">0€/mois</p>
                 </div>
                 <div class="plan-tab" data-tab="standard-plan">
+                    <div class="plan-icon">2</div>
                     <h3 class="plan-name">Standard</h3>
+                    <img src="{% static 'images/standard.jpg' %}" alt="Standard Plan" class="plan-image">
+                    <!-- <img src="https://via.placeholder.com/300x200.png?text=Standard" alt="Standard Plan" class="plan-image"> -->
+
                     <p class="plan-price">30€/mois</p>
                 </div>
                 <div class="plan-tab" data-tab="premium-plan">
+                    <div class="plan-icon">3</div>
                     <h3 class="plan-name">Premium</h3>
+                    <img src="{% static 'images/premium.avif' %}" alt="Premium Plan" class="plan-image">
                     <p class="plan-price">60€/mois</p>
                 </div>
             </div>

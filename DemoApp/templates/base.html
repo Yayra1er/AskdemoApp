@@ -23,8 +23,8 @@
         /* Navigation styles */
         .topnav {
             overflow: hidden;
-            background: linear-gradient(90deg, #2196f3, #4caf50);
-            color: #fff;
+            background-color: white;
+            color: black;
             padding: 10px 0;
             text-align: center;
         }
@@ -37,7 +37,7 @@
         }
 
         .topnav a:hover {
-            background-color: #555;
+            background: linear-gradient(90deg, #2196f3, #4caf50);
         }
 
         .topnav .icon {
@@ -192,8 +192,8 @@
         }
 
         .footer-bottom {
-            background-color: #222;
-            color: #ccc;
+            background-color: white;
+            color: black;
             padding: 0px 0;
             text-align: center;
             height: 20px;
@@ -231,6 +231,9 @@
                 color: #007bff;
             }
         }
+
+
+
     </style>
 </head>
 <body>
@@ -238,13 +241,11 @@
 <div class="topnav" id="myTopnav">
                     <img src="{% static 'images/DS-New.png' %}" alt="Slide 2" style="width:4%; height: 4%; margin-left: 350px;">
 
-  <div class="right">
-    <a href="{% url 'home' %}" style="margin-right: 40px;">Accueil</a>
-    <a href="{% url 'apropos' %}" style="margin-right: 40px;">A propos</a>
-    <a href="{% url 'solution' %}" style="margin-right: 40px;">Solutions</a>
-    <a href="{% url 'offre' %}" style="margin-right: 40px;">Offres</a>
-    <a href="{% url 'contact' %}" style="margin-right: 350px;">Contact</a>
-            <a href="{% url 'solution' %}" class="btn btn-primary" style="background-color: white; opacity: 0.7; margin-top: 17px; color: black; margin-right: 50px; padding-top: 2px; padding-bottom: 2px; ">Demandez une Démo</a>
+  <div class="right" style="color: black;" >
+    <a href="{% url 'home' %}" style=" color: black;">Accueil</a>
+    <a href="{% url 'apropos' %}" style="color: black;">A propos</a>
+    <a href="{% url 'offre' %}" style="color: black;">Offres</a>
+            <a href="{% url 'solution' %}" class="btn btn-primary" style="background: linear-gradient(90deg, #2196f3, #4caf50); margin-top: 17px; color: black; margin-right: 50px; padding-top: 5px; padding-bottom: 2px; margin-left: 420px; height: 40px; ">Demandez une Démo</a>
   </div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
