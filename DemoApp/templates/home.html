@@ -295,7 +295,8 @@
 
     .confiance{
         text-align: center;
-        margin-top: 70px;
+        margin-top: -75px;
+        margin-left: -1000px;
     }
 
   .logo-carousel {
@@ -347,65 +348,6 @@
     }
 
 
-
-
-    .team-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 40px;
-}
-
-.team-member {
-    max-width: 300px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.team-member img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    object-fit: cover;
-}
-
-.member-details h3 {
-    color: #333;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.member-details p {
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.social-links a {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    background-color: #007bff;
-    color: #fff;
-    text-align: center;
-    margin: 0 5px;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
-}
-
-.social-links a:hover {
-    background-color: #0056b3;
-}
-
-
-
-
 .testimonial-carousel {
     width: 80%; /* Ajuster la largeur selon les besoins */
     margin: 0 auto;
@@ -442,66 +384,27 @@
     margin-left: 20px;
 }
 
-.testimonial-text p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #555;
-    margin-bottom: 10px;
-}
+    .testimonial-text p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 10px;
+    }
 
-.testimonial-text footer {
-    font-style: italic;
-    color: #777;
-}
-
-
+        .testimonial-text footer {
+            font-style: italic;
+            color: #777;
+        }
 
 
+        .content-wrapper .contente{
+            margin-left: 0px;
+        }
 </style>
-
-
-<!--
-<div class="container">
-    <h1 class="welcome-title">Bienvenue sur AskDemoApp !</h1>
-    <p class="intro-text">Découvrez notre application innovante qui simplifie la gestion des demandes de démonstration. AskDemoApp est fait pour vous.</p>
-
-    <h2 class="section-title">Découvrez nos services</h2>
-
-    <div class="slider">
-        <div class="mySlides fade">
-            <div class="text-and-image">
-                <div class="image-container">
-                    <img src="{% static 'images/demo3.jpg' %}" alt="Slide 1" style="width:100%;">
-                </div>
-                <div class="text-content">
-                    <p>Proécdez pour votre démo</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="mySlides fade">
-            <div class="text-and-image">
-                <div class="image-container">
-                    <img src="{% static 'images/demo4.jpg' %}" alt="Slide 2" style="width:100%;">
-                </div>
-                <div class="text-content">
-                    <p>Procédez pour votre démo</p>
-                </div>
-            </div>
-        </div>
-         </div>
--->
-        <!-- Ajoutez plus de slides au besoin
-    <div class="dynamic-rectangle" style="padding-top: 0px; padding-bottom: 0px;">
-    <div class="content-wrapper">
-        <p style="color: black;">Découvrez DefenseScheduler pour l'optimisation de vos soutenances.</p>
-        <a href="#" class="decouvrir">Découvrir</a>
-    </div>
-</div> -->
 
     <div class="afterFooter">
     <div class="content-wrapper">
-        <div class="contente">
+        <div class="contente" style="margin-left: -205px;">
             <h2>Démonstration gratuite et personnalisée</h2>
             <p>Profitez d'une technologie de pointe exploitant intelligemment une vaste quantité de données universitaires, et obtenez les meilleures recommandations pour la gestion efficace des soutenances académiques.</p>
         </div>
@@ -509,23 +412,19 @@
             <img src="{% static 'images/21513.jpg' %}" alt="Votre Image" style="width: 150%; border-radius: 8px; overflow: hidden; ">
         </div>
     </div>
-
-        <p class="confiance"> Plus de 10 écoles et facultés du Bénin  nous font confiance </p>
+        <p class="confiance" style=""> Plus de 10 écoles et facultés du Bénin  nous font confiance </p>
 
 <div class="logo-carousel">
         <div id="carousel-inner" class="carousel-inner" style="margin-right: 50px; margin-left: 50px;">
             <img src="{% static 'images/ifri.png' %}" alt="Logo ifri">
-                        <img src="{% static 'images/fsa.jpg' %}" alt="Logo fsa">
-
+            <img src="{% static 'images/fsa.jpg' %}" alt="Logo fsa">
             <img src="{% static 'images/ena.jpg' %}" alt="Logo ena">
             <img src="{% static 'images/eneam.png' %}" alt="Logo 4">
             <img src="{% static 'images/epac.jpeg' %}" alt="Logo 5">
             <!-- Ajoutez autant d'images que nécessaire -->
         </div>
     </div>
-
         <script>
-
     $(document).ready(function(){
         $('.carousel-inner').slick({
             slidesToShow: 4, // Nombre de logos affichés à la fois
@@ -535,7 +434,7 @@
             speed: 3000, // Vitesse de transition entre les logos (ajustez selon votre préférence)
             cssEase: 'linear', // Effet de transition linéaire pour un défilement fluide
             infinite: false, // Défilement infini
-            pauseOnHover: false, // Ne pas mettre en pause lorsqu'on survole
+            pauseOnHover: true, //  Mettre en pause lorsqu'on survole
             centerMode: true, // Centre les logos actifs
             variableWidth: true, // Permet la largeur variable pour s'adapter aux logos
             prevArrow: false, // Masque la flèche précédente
@@ -544,36 +443,6 @@
     });
 
         </script>
-
-    <!-- JavaScript pour le défilement automatique
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const carouselInner = document.getElementById('carousel-inner');
-            const images = carouselInner.querySelectorAll('img');
-            let currentIndex = 0;
-            const intervalTime = 3000; // Intervalle en millisecondes entre chaque changement d'image
-
-            function slide() {
-                // Masquer l'image actuelle
-                images[currentIndex].style.opacity = 0;
-
-                // Passer à l'image suivante
-                currentIndex++;
-                if (currentIndex >= images.length) {
-                    currentIndex = 0;
-                }
-
-                // Afficher l'image suivante
-                images[currentIndex].style.opacity = 1;
-
-                // Répéter l'animation après l'intervalle de temps spécifié
-                setTimeout(slide, intervalTime);
-            }
-
-            // Démarrer le défilement automatique au chargement de la page
-            slide();
-        });
-    </script> -->
 </div>
 <br> <br>
 
@@ -588,9 +457,6 @@
         <p>Avec notre système, les institutions peuvent rationaliser les tâches administratives, optimiser les ressources et offrir une expérience enrichissante aux étudiants pendant cette étape cruciale de leur parcours académique.</p>
     </div>
 </div>
-
-
-
 
 <div class="Mdemo" style="background-color: #F8F8FF; padding: 20px; border-radius: 8px;">
     <h2 style="color: #333; margin-left: 40%;">Une solution de pointe</h2>
@@ -614,108 +480,6 @@
         <a href="{% url 'solution' %}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; height: 25px;">Découvrir DefenseScheduler</a>
     </div>
 </div>
-
-
-<!--
-<h2 style="text-align: center;"> Our team </h2>
-<div class="team-section">
-
-    <div class="team-member">
-        <img src="{% static 'images/john.avif' %}" alt="Team Member">
-        <div class="member-details">
-            <h3>John Doe</h3>
-            <p>CEO & Founder</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida diam.</p>
-            <div class="social-links">
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-facebook"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="team-member">
-        <img src="{% static 'images/femme.jpg' %}" alt="Team Member">
-        <div class="member-details">
-            <h3>Jane Smith</h3>
-            <p>Marketing Manager</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida diam.</p>
-            <div class="social-links">
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="team-member">
-        <img src="{% static 'images/femme.jpg' %}" alt="Team Member">
-        <div class="member-details">
-            <h3>Jane Smith</h3>
-            <p>Marketing Manager</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida diam.</p>
-            <div class="social-links">
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="team-member">
-        <img src="{% static 'images/femme.jpg' %}" alt="Team Member">
-        <div class="member-details">
-            <h3>Jane Smith</h3>
-            <p>Marketing Manager</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida diam.</p>
-            <div class="social-links">
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-        </div>
-    </div>
-
-</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <script>
-        var slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}
-            slides[slideIndex-1].style.display = "block";
-            setTimeout(showSlides, 5000); // Change image every 5 seconds
-        }
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-    </script> -->
 
     <h2 class="section-title" style="text-align: center;">Nos Solutions Innovantes</h2>
 
@@ -770,8 +534,6 @@
         setInterval(carousel, 5000); // Défilement automatique toutes les 5 secondes
     </script>
 
-
-
 <!-- Rectangles avec texte -->
 <div class="rectangle-container">
     <div class="rectangle">
@@ -796,6 +558,5 @@
         </div>
     </div>
 </div>
-
 
 {% endblock %}

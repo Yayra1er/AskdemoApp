@@ -20,10 +20,13 @@
             background-color: #fff; /* Fond blanc pour la colonne de gauche */
             flex: 1; /* Occupe 50% de l'espace disponible */
             padding: 20px; /* Espacement intérieur */
-            background-image: url('{% static "images/diplomes.jpg" %}');
+            background-image: url('{% static "images/demo4.jpg" %}');
             background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la section */
             background-position: center; /* Centre l'image horizontalement et verticalement */
             color: white;
+            width: 30%;
+             /* background-size: 80% 90%;  */
+            /* background-repeat: no-repeat; */
         }
 
 
@@ -37,29 +40,27 @@
             cursor: pointer;
             margin-bottom: 10px;
             border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    transition: background-color 0.3s;
-}
+            padding-bottom: 10px;
+            transition: background-color 0.3s;
+        }
 
-.demo-benefits-list li:hover {
-    background-color: black;
-}
+        .demo-benefits-list li:hover {
+            background-color: black;
+        }
 
-.benefit-details {
-    display: none;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #28a745;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    opacity: 0.7;
-}
+        .benefit-details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #28a745;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            opacity: 0.7;
+        }
 
-.benefit-details p {
-    margin: 0;
-}
-
-
+        .benefit-details p {
+            margin: 0;
+        }
 
 
         .right-column {
@@ -93,6 +94,7 @@
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
+
         }
 
         .form-group input, .form-group textarea, .form-group select {
@@ -117,7 +119,7 @@
             display: block;
             margin-top: 10px;
             width: 100%; /* Centrage horizontal */
-            max-width: 200px; /* Largeur maximale */
+            max-width: 220px; /* Largeur maximale */
         }
 
         .form-group button:hover {
@@ -173,13 +175,19 @@
             border-radius: 4px;
 
         }
+
+        h2{
+            text-align: center;
+
+
+        }
     </style>
 </head>
 <body>
 <main>
     <section class="left-column">
-                            <img src="{% static 'images/DS-New.png' %}" alt="Slide 2" style="width:6%; height: 7%; margin-left: 100px;">
-
+                          <!--  <img src="{% static 'images/DS-New.png' %}" alt="Slide 2" style="width:6%; height: 7%; margin-left: 100px;"> -->
+        <!--
          <section id="introduction" >
         <div class="container">
             <h2>Introduction à la Démo</h2>
@@ -217,7 +225,7 @@
     details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
 }
 
-        </script>
+        </script> -->
 </section>
 
 
